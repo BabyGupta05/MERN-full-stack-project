@@ -34,7 +34,7 @@ exports.deleteProduct=async(req,res)=>{
     return res.status(200).send({success:true,message:"product deleted "});
 }
 //single product
-exports.getProductDetail=async(req,res)=>{
+exports.getProductDetail=async(req,res,nxt)=>{
    const Product=await productModel.findById(req.params.id);
     if(!Product){
         return res.status(500).send({success:false,message:"please enter valid id"});
